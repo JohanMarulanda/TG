@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container" style="padding-top: 5%">
+    <h2>Asignaturas</h2>
+    <p>Escribe para buscar por nombre de la asignatura o codigo de la misma</p>
+    <input class="form-control" id="myInput" type="text" placeholder="Buscar asignatura . . . ">
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Codigo</th>
+            <th>Nombre Asignatura</th>
+            <th>Nro Creditos</th>
+            <th>Docentes Encargados</th>
+        </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for asignatura in asignaturas %}
+            <tr>
+                <td>{{ asignatura.codigo }}</td>
+                <td>{{ asignatura.nombre }}</td>
+                <td>{{ asignatura.creditos }}</td>
+                <td>{{ asignatura.docentes }}</td>
+                <td>
+                    <a href="{% url 'edit' asignatura.id %}" class="btn btn-warning"><span class="fas fa-wrench"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<div class="form-group row">
+    <label class="col-sm-1 col-form-label"></label>
+    <div class="col-sm-4">
+        <a href="{% url 'user_logout' %}" class="btn btn-success">Salir</a>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
+</body>
+</html>

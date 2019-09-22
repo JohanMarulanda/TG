@@ -1,0 +1,166 @@
+body{
+    font-family: 'Oswald', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url(/static/img/FondoLogin.jpg);
+}
+
+.login-box{
+    position: absolute;
+    width: 400px;
+    height: 310px;
+    background: rgba(0,0,0,0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 80px 40px;
+}
+
+.login-img{
+    position: absolute;
+    height: 100px;
+    top: calc(-100px/2);
+    left: calc(50% - 50px);
+}
+
+.login-text{
+    text-align: center;
+    font-size: 25px;
+    color: yellow;
+}
+
+/* Estilos imputs */
+.login-box p{
+    margin: 0;
+    padding: 0;
+    color: #fff;
+    font-weight: bold;
+}
+
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"]{
+    background: transparent;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    font-size: 14px;
+}
+
+/* Boton logear */
+.btn-login{
+    height: 35px;
+    background: #FF6F00;
+    border-radius: 15px;
+    border: none;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.btn-registrar{
+   height: 35px;
+    background:  #29EEE5;
+    border-radius: 15px;
+    border: none;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.btn-login:hover{
+    background: #FDD835;
+}
+
+.btn-registrar:hover{
+    background: #2991EE;
+}
+
+@media only screen and (max-width: 600px){
+    .login-box{
+        width: 96%;
+    }
+}
+
+.botones{
+    float: left;
+}
+
+.btn-docente{
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 20px;
+    color:#ffffff;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:40px;
+    padding-right:40px;
+    background-color:#f2595e;
+    border-color: #F69DA1;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.botones{
+    position: absolute;
+    top: 50%;
+    left: 35%;
+}
+
+.btn-asignatura{
+    text-decoration:none;
+    font-weight: 600;
+    font-size: 20px;
+    color:#ffffff;
+    padding-top:15px;
+    padding-bottom:15px;
+    padding-left:40px;
+    padding-right:40px;
+    background-color:#f2595e;
+    border-color: #F69DA1;
+    border-width: 3px;
+    border-style: solid;
+}
+
+.btn-docente:hover{
+    background: #F69DA1;
+}
+
+.btn-asignatura:hover{
+    background: #F69DA1;
+}
+
+header{
+    width: 100%;
+    position: fixed;
+}
+
+.header-top{
+    width: 100%;
+    background: #378FD9;
+}
+
+.navegacion{
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    padding: 12px 0;
+}
+
+input[type="search"]{
+    padding: 10px;
+    padding-right: 35px;
+    border: none;
+}
+
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgba(0,0,0,0.5);
+
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido {{ user.username }}</title>
+    <link rel="stylesheet" href="/static/css/estilos.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+            {{ request.user }} | <a href="#" onClick="document.getElementById('logoutform').submit()"><button type="button">Logout</button></a>
+            <form id="logoutform" method="POST" action="{% url 'users:user_logout' %}">
+                {% csrf_token %}
+                <input type="hidden">
+            </form>
+        </ul>
+      </div>
+    </nav>
+
+    <div>
+        <form class="botones">
+            {% csrf_token %}
+            <a href="{% url 'show' %}" class="btn-docente">Buscar Docente</a>
+            <a href="{% url 'formulario' %}" class="btn-asignatura">Buscar Asignatura</a>
+        </form>
+    </div>
+</body>
+</html>

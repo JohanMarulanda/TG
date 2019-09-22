@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Añadir comentario</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <form method="POST" class="post-form" action="{% url 'update' docente.id %}">
+            {% csrf_token %}
+            <div class="container">
+                <br>
+                <div class="form-group row">
+                    <label class="col-sm-1 col-form-label"></label>
+                    <div class="col-sm-4">
+                    <h3>Enviar un comentario</h3>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Docente:</label>
+                    <div class="col-sm-4">
+                        <input disabled class="form-control" type="text" value="{{ docente.nombre }}" />
+                        <input type="hidden" name="nombre" value="{{ docente.nombre }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">Asignatura:</label>
+                    <div class="col-sm-4">
+                        <input disabled class="form-control" type="text" value="{{ docente.asignatura }}" />
+                        <input type="hidden" name="asignatura" value="{{ docente.asignatura }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <input type="text" name="comentarios" required value="{{ docente.comentarios }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-1 col-form-label"></label>
+                    <div class="col-sm-4">
+                        <button type="submit" class="btn btn-success">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
