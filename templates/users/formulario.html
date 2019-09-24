@@ -1,180 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Registrar Usuario</title>
-        {% load staticfiles %}
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    </head>
-    <body>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Usuario</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <h1 id="title">Formulario busqueda docente:</h1>
+
+    <div id="contendor">
+        <p id="description">
+            no se que poner aqui a modo de descripcion.
+        </p>
 
         <form method="POST" class="post-form" action="{% url 'formulario' %}">
             {% csrf_token %}
-            <div class="container">
-                <br>
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label"></label>
-                    <div class="col-sm-4">
-                    <h3>Formulario busqueda docente:</h3>
-                    </div>
-                </div>
 
-                <div class="form-group row">
-                <select name="asignatura_escogida">
-                    {% for asignatura in asignaturas %}
-                       <option value="{{asignatura.id}}">
-                           {{asignatura.nombre}}
-                       </option>
-                    {% endfor %}
-                </select>
-                </div>
+            <br>
 
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Pregunta 1:</label>
-                    <div class="col-sm-4">
-                        <label>¿Qué tan importante consideras tú que el curso sea bien planificado, planeado y aceptado?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="oficioActual">Asignatura: </label>
                 </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Pregunta 2:</label>
-                    <div class="col-sm-4">
-                        <label>Como estudiante, ¿El acompañamiento del docente es vital para tu aprendizaje o consideras que no es necesario y solo con una guía básica de la signatura puedes arquirir los conocimientos necesarios?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Pregunta 3:</label>
-                    <div class="col-sm-4">
-                        <label>¿Como sería su compromiso con el curso?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Pregunta 4:</label>
-                    <div class="col-sm-4">
-                        <label>¿Qué tan importante consideras que el curso esté actualizado?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Pregunta 5:</label>
-                    <div class="col-sm-4">
-                        <label>¿Es importante para tí que la metodología empleada por el docente ayude a la reflexión y apropiación de conocimientos?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Pregunta 6:</label>
-                    <div class="col-sm-4">
-                        <label>¿Qué tan importante consideras que los temas explicados por el docente concuerden con lo pactado al inicio del curso?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Pregunta 7:</label>
-                    <div class="col-sm-4">
-                        <label>¿Qué tan importante consideras que el docente ponga de su tiempo para consultas y asesorías?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Pregunta 8:</label>
-                    <div class="col-sm-4">
-                        <label>¿Qué tan importante es que los tiempos dados para las evaluaciones concuerdan con el grado de dificultad de las mismas?</label>
-                        <input type="radio" name="opcion1" value="1">Sin importancia
-                        <br>
-                        <input type="radio" name="opcion2" value="2">Poco importante
-                        <br>
-                        <input type="radio" name="opcion3" value="2">Irrelevante
-                        <br>
-                        <input type="radio" name="opcion4" value="2">Importante
-                        <br>
-                        <input type="radio" name="opcion5" value="2">Muy importante
-                        <br>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-1 col-form-label"></label>
-                    <div class="col-sm-4">
-                        <button type="submit" class="btn btn-success">Enviar Formulario</button>
-                    </div>
+                <div class="campos">
+                    <select id="dropdown" name="asignatura_escogida" class="dropdown">
+                        <option disabled value>Seleccione una opción</option>
+                        {% for asignatura in asignaturas %}
+                        <option value="{{asignatura.id}}">
+                            {{asignatura.nombre}}
+                        </option>
+                        {% endfor %}
+                    </select>
                 </div>
             </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Qué tan importante consideras tú que el curso sea bien planificado, planeado y aceptado?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">Como estudiante, ¿El acompañamiento del docente es vital para tu aprendizaje o consideras que no es necesario y solo con una guía básica de la signatura puedes arquirir los conocimientos necesarios?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Como sería su compromiso con el curso?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Qué tan importante consideras que el curso esté actualizado?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Es importante para tí que la metodología empleada por el docente ayude a la reflexión y apropiación de conocimientos?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Qué tan importante consideras que los temas explicados por el docente concuerden con lo pactado al inicio del curso?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Qué tan importante consideras que el docente ponga de su tiempo para consultas y asesorías?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="filas">
+                <div class="etiquetas">
+                    <label id="number-label" for="radio-buttons">¿Qué tan importante es que los tiempos dados para las evaluaciones concuerdan con el grado de dificultad de las mismas?</label>
+                </div>
+
+                <div class="campos">
+                    <ul style="list-style: none;">
+                        <li class="radio">
+                            <label>Sin importancia
+                                <input name="opcion1" value="1" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Poco importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Irrelevante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                        <li class="radio">
+                            <label>Muy importante
+                                <input name="opcion2" value="2" type="radio" class="userRatings">
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </form>
 
-    </body>
+    </div>
+
+    <div class="filas">
+        <div class="etiquetas">
+            <label id="number-label" for="radio-buttons">¿Qué tan importante consideras que los temas explicados por el docente concuerden con lo pactado al inicio del curso?</label>
+        </div>
+
+        <div class="campos">
+            <ul style="list-style: none;">
+                <li class="radio">
+                    <label>Sin importancia
+                        <input name="opcion1" value="1" type="radio" class="userRatings">
+                    </label>
+                </li>
+                <li class="radio">
+                    <label>Poco importante
+                        <input name="opcion2" value="2" type="radio" class="userRatings">
+                    </label>
+                </li>
+                <li class="radio">
+                    <label>Irrelevante
+                        <input name="opcion2" value="2" type="radio" class="userRatings">
+                    </label>
+                </li>
+                <li class="radio">
+                    <label>Importante
+                        <input name="opcion2" value="2" type="radio" class="userRatings">
+                    </label>
+                </li>
+                <li class="radio">
+                    <label>Muy importante
+                        <input name="opcion2" value="2" type="radio" class="userRatings">
+                    </label>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success">Enviar Formulario</button>
+
+    </form>
+
+    </div>
+
+</body>
+
 </html>
